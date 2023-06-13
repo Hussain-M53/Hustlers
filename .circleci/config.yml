@@ -24,7 +24,7 @@ jobs:
           name: "testing flutter app"
           command: flutter test
 
-  generate_apk:
+  generate-apk:
     docker:
       - image: cirrusci/flutter
     steps:
@@ -42,10 +42,6 @@ workflows:
       - test:
           requires:
             - build
-
-  apk_workflow:
-    jobs:
-      - generate_apk:
+      - generate-apk:
           requires:
-            - build-test-workflow
-  
+            - test
