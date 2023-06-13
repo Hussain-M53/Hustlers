@@ -45,5 +45,7 @@ workflows:
 
   apk_workflow:
     jobs:
-      - generate_apk
+      - generate_apk:
+          requires:
+            - build-test-workflow
   
