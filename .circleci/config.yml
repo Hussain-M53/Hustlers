@@ -24,7 +24,7 @@ jobs:
           name: "testing flutter app"
           command: flutter test
 
-  generate_apk:
+  generate-apk:
     docker:
       - image: cirrusci/flutter
     steps:
@@ -40,16 +40,13 @@ workflows:
     jobs:
       - build
       - test:
-           requires:
+          requires:
             - build
+      - generate-apk:
+          requires:
+            - test
     filters:
       branches:
         only:
           - circleci-project-setup       
-
-  apk_workflow:
-    jobs:
-      - generate_apk:
-          requires:
-            - test
   
