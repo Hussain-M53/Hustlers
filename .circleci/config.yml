@@ -45,8 +45,8 @@ workflows:
       - generate-apk:
           requires:
             - test
-    filters:
-      branches:
-        only:
-          - circleci-project-setup       
+filters:
+  branches:
+    only:
+      - circleci-project-setup       
   
