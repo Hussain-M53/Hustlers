@@ -40,12 +40,16 @@ workflows:
     jobs:
       - build
       - test:
-          requires:
+           requires:
             - build
+    filters:
+      branches:
+        only:
+          - circleci-project-setup       
 
   apk_workflow:
     jobs:
       - generate_apk:
           requires:
-            - build-test-workflow
+            - test
   
