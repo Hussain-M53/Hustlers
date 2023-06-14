@@ -43,7 +43,6 @@ workflows:
             branches:
               only:
                 - circleci-project-setup
-      
       - test:
           requires:
             - build
@@ -58,5 +57,3 @@ workflows:
             branches:
               only:
                 - circleci-project-setup  
-       
-  
