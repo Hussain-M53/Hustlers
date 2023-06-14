@@ -38,15 +38,25 @@ jobs:
 workflows:
   build-test-workflow:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+      
       - test:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - circleci-project-setup  
       - generate-apk:
           requires:
             - test
-filters:
-  branches:
-    only:
-      - circleci-project-setup       
+          filters:
+            branches:
+              only:
+                - circleci-project-setup  
+       
   
