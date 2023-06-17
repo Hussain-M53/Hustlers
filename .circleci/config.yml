@@ -51,8 +51,8 @@ workflows:
               only:
                 - circleci-project-setup  
       - generate-apk:
-          requires:
-            - test
+          # requires:
+          #   - test
           filters:
             branches:
               only:
